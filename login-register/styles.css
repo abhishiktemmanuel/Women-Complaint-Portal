@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Flex:opsz,wght@8..144,100&display=swap');
+:root {
+  --dark: black;
+  --light: beige;
+}
+*{
+  margin : 0;
+  padding : 0;
+  color: var(--dark);
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+body{
+  display:flex;
+	background-image: url('https://cdn.dribbble.com/users/3076691/screenshots/15454419/media/4aa0850141f8bbf2375fc05cbf6d6398.jpg?resize=1600x1200&vertical=center');
+
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+.logo{
+  font-size: 2em;
+  color: var(--dark);
+  user-select: none;
+}
+
+.navbar a{
+  position:relative;
+  font-size: 1.1em;
+  color: var(--dark);
+  text-shadow: var(--dark);
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 40px;
+}
+.navbar a::after{
+  content: '';
+  left: 0;
+  bottom: -6px;
+  position: absolute;
+  width:100%;
+  height: 3px;
+  background: var(--dark);
+  border-radius: 5px;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+}
+
+.navbar a:hover::after{
+  transform-origin: left;
+  transform: scale(1);
+  color: var(--light);
+}
+
+.navbar .btnLogin-popup{
+  width: 100px;
+  height: 35px;
+  background: transparent;
+  border: 2px solid var(--dark);
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: var(--dark);
+  font-weight:500;
+  margin-left: 40px;
+  transition: .5s;
+}
+
+.navbar .btnLogin-popup:hover{
+  background: var(--light);
+  color: var(--dark);
+
+}
+
+.wrapper{
+  margin: 5px;
+  position: relative;
+  flex-direction: column;
+  height:440px;
+  background: rgba(255, 255, 255, 0.01);
+  border: 2px solid rgba(255, 255, 255, .5);
+  border-radius: 20px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  opacity: 1; 
+  transform: scale(0);
+}
+
+.wrapper.active-popup{
+  opacity: 1;
+  transform: scale(1);
+}
+
+.wrapper.active{
+  height: 590px;
+}
+.wrapper .form-box{
+  width: 100%;
+  padding: 40px;
+}
+.wrapper .form-box.login{
+  transition: transform .18s ease;
+  transform: translateX(0);
+}
+
+.wrapper.active .form-box.login{
+  transition: none;
+  transform: translateX(-500px)
+}
+
+.form-box.login h2{
+  font-size: 2em;
+  text-align: center;
+  color: var(--dark);
+}
+.wrapper .form-box.register{
+  position: absolute;
+  transition: none;
+  transform: translateX(500px)
+}
+
+.wrapper.active .form-box.register{
+  transition: transform .18s ease;
+  transform: translateX(0);
+}
+
+.form-box.register h2{
+  font-size: 2em;
+  text-align: center;
+  color: var(--dark);
+}
+
+table, th, td {
+  padding-right: 60px;
+}
+table {
+  border-spacing: 10px;
+}
+
+.input-box{
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid var(--dark);
+  margin: 30px 30px 30px 0px;
+}
+
+.input-box label{
+  position: absolute;
+  top:50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: var(--dark);
+  font-weight: 500;
+  pointer-events: none;
+  transition: .5s;
+}
+.input-box input:focus~label,
+.input-box input:valid~label{
+  top: -5px;
+}
+.input-box input{
+  width:100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--dark);
+  font-weight: 600;
+  padding: 0 35px 0 5px;
+}
+
+.input-box .icon{
+  position: absolute;
+  right: 8px;
+  font-size: 1.2em;
+  color: var(--dark);
+  line-height: 57px;
+}
+
+.remember-forgot{
+  font-size: .9em;
+  color: var(--dark);
+  font-weight: 500;
+  margin: -15px 0 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.remember-forgot label input{
+  accent-color: var(--dark);
+  margin-right: 3px;
+}
+
+.remember-forgot a{
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+.btn{
+  width: 100%;
+  height: 45px;
+  background: rgba(255, 255, 255, .1);
+  border-radius: 40px;
+  border: 2px solid rgba(255, 255, 255, .5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, .3);
+  color: var(--dark);
+}
+
+.login-register{
+  text-align: center;
+  text-decoration:none;
+  top: 5px;
+  padding-top: 10px;
+}
+
+.register-link{
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 600;
+}
+.login-link{
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-register a:hover {
+  text-decoration: underline;
+}
+
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transform: scale(1); 
+  display: none;
+}
+
+.textblock{
+  text-align: justify;
+  align-items: center;
+  position: relative;
+  padding: 30px;
+  margin: 100px 10% 100px 10%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, .07);
+  border: 2px solid rgba(255, 255, 255, .5);
+  border-radius: 20px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+}
+
+.sidenav{
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  padding: 50px 20px;
+  margin-top: 100px;
+  background: rgba(255, 255, 255, .07);
+  border-top: 2px solid rgba(255, 255, 255, .5);
+  border-right: 2px solid rgba(255, 255, 255, .5);
+  border-bottom: 2px solid rgba(255, 255, 255, .5);
+  border-radius: 0px 20px 0px 0px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+}
+
+.sidenav a {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 15px;
+  color: var(--dark);
+  display: block;
+}
+
+.err{
+  color: crimson !important;
+  justify-content: center;
+  align-items: center;
+}
+
