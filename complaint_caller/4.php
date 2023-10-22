@@ -19,18 +19,7 @@
         $area = $_POST["area"];
 
         // Database connection settings
-        $host = "localhost"; // Change to your database host
-        $username = "root"; // Change to your database username
-        $password = ""; // Change to your database password
-        $database = "shelter_names"; // Change to your database name
-
-        // Create a database connection
-        $conn = new mysqli($host, $username, $password, $database);
-
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        include '../residuals/_dbconnect.php';
 
         // Prepare the SQL statement to search for shelter names by area
         $sql = "SELECT shelter_name FROM shelters WHERE area = ?";

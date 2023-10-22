@@ -7,24 +7,13 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "complaint_portal";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include '../residuals/_dbconnect.php';
 
 // Get the user ID from the session
 $user_id = $_SESSION['user_id'];
 
 // Use prepared statements to avoid SQL injection
-$sql = "SELECT complaint_type, complaint_date, incident_date, complaint_description, pending FROM complaints WHERE user_id = ? ORDER BY complaint_date DESC";$stmt = $conn->prepare($sql);
+$sql = "SELECT  complaint_type, id , complaint_date, incident_date, complaint_description, pending FROM complaints WHERE user_id = ? ORDER BY complaint_date DESC";$stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -99,6 +88,7 @@ $stmt->close();
                     '<div class="card-body">' .
                         '<p>' . $complaint['complaint_description'] . '</p>' .
                         '<p>Registered: ' . $complaint['complaint_date'] . '</p>' .
+                        '<p>ID: ' . $complaint['id'] . '</p>' .
                         '</div>' .
                     '</div>';
                     
@@ -120,6 +110,7 @@ $stmt->close();
                     '<div class="card-body">' .
                         '<p>' . $complaint['complaint_description'] . '</p>' .
                         '<p>Registered: ' . $complaint['complaint_date'] . '</p>' .
+                        '<p>ID: ' . $complaint['id'] . '</p>' .
                         '</div>' .
                     '</div>';
                 }

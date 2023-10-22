@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include '_dbconnect.php';
+    include '../residuals/_dbconnect.php';
 
     // Check if the "login_submit" button was clicked
     if(isset($_POST['login_submit'])) {
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             else {
                 // Login failed, redirect to login-register.php with an error message
                 echo '<script>
-                window.location.href = "index.php";
+                window.location.href = "index.html";
                 alert("Login failed. Invalid username or password!");
                 </script>';
                 exit();
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             // Login failed, redirect to login-register.php with an error message
             echo '<script>
-            window.location.href = "index.php";
+            window.location.href = "index.html";
             alert("Login failed. Invalid username or password!");
             </script>';
             exit();

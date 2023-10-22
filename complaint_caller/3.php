@@ -19,18 +19,7 @@
         $location = $_POST["location"];
 
         // Database connection settings
-        $host = "localhost"; // Change to your database host
-        $username = "root"; // Change to your database username
-        $password = ""; // Change to your database password
-        $database = "hospitals"; // Change to your database name
-
-        // Create a database connection
-        $conn = new mysqli($host, $username, $password, $database);
-
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        include '../residuals/_dbconnect.php';
 
         // Prepare the SQL statement to search for hospital names by location
         $sql = "SELECT NameofHospital FROM hospital_names WHERE location = ?";

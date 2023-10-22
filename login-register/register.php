@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include '_dbconnect.php';
+    include '../residuals/_dbconnect.php';
 
     if (isset($_POST['register_submit'])) {
         $phone = $_POST["phone"];
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if (mysqli_stmt_execute($insert_stmt)) {
                         // Registration successful, redirect to login-register.php
                         echo '<script>
-                        window.location.href = "index.php";
+                        window.location.href = "index.html";
                         alert("User registered");
                         </script>';
                         exit();
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             else {
                 // Agree to tearms is neccessary
                 echo '<script>
-                window.location.href = "index.php";
+                window.location.href = "index.html";
                 alert("Agree to terms is neccessary");
                 </script>';
             }

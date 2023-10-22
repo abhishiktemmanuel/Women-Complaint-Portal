@@ -11,16 +11,7 @@
         $stationName = $_POST["stationName"];
         
         // Connect to your database (replace with your database credentials)
-        $dbHost = "localhost";
-        $dbUser = "root";
-        $dbPassword = "";
-        $dbName = "police_station_numbers";
-        
-        $conn = new mysqli($dbHost, $dbUser, $dbPassword, $dbName);
-
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        include '../residuals/_dbconnect.php';
 
         // Query the database for the phone number
         $sql = "SELECT phone_number FROM police_stations WHERE station_name = ?";

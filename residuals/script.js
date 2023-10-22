@@ -3,7 +3,7 @@ const button = document.getElementById("loginButton");
 // Add a click event listener to the button
 button.addEventListener("click", function() {
     // Redirect to index.php
-    window.location.href = "login-register/index.php";
+    window.location.href = "login-register/index.html";
 });
 
 const navbar = document.getElementById('navbar');
