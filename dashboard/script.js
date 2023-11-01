@@ -27,8 +27,6 @@ document.getElementById('logoutButton').addEventListener('click', function() {
 
 
 
-
-
 // Get elements
 var policeButton = document.getElementById("policeButton");
 var hospitalButton = document.getElementById("hospitalButton");
@@ -59,4 +57,25 @@ exitButton.addEventListener("click", function () {
     var randomWebsites = ["https://www.nykaa.com", "https://www.myntra.com","https://www.amazon.com","https://www.flipkart.com","https://www.zomato.com","https://www.flipkart.com"];
     var randomIndex = Math.floor(Math.random() * randomWebsites.length);
     window.location.href = randomWebsites[randomIndex];
+});
+
+
+// Get a reference to the date input field
+const incidentDateInput = document.getElementById("incidentDate");
+
+// Add an event listener to the date input field
+incidentDateInput.addEventListener("input", function() {
+    // Get the selected date from the input field
+    const selectedDate = new Date(incidentDateInput.value);
+
+    // Get the current date
+    const currentDate = new Date();
+
+    // Compare the selected date to the current date
+    if (selectedDate > currentDate) {
+        // Display an error message or perform your desired action
+        alert("Please choose a date on or before the current date.");
+        // You can also clear the input field or prevent form submission here
+        incidentDateInput.value = '';
+    }
 });

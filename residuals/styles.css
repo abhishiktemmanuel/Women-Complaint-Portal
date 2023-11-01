@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Flex:opsz,wght@8..144,100&display=swap');
+
 :root {
 	--dark: black;
 	--light: beige;
@@ -35,6 +37,9 @@ margin-bottom: 30px;
 	align-items: center;
 }
 
+.hidden{
+    visibility: hidden;
+}
 .navbar a {
     position:relative;
   font-size: 1.1em;

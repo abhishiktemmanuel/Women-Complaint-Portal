@@ -1,15 +1,15 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include '_dbconnect.php';
+    include '../residuals/_dbconnect.php';
 
     // Check if the "login_submit" button was clicked
     if(isset($_POST['login_submit'])) {
-        $phone = $_POST["id"];
+        $phone = $_POST["phone"];
         $password = $_POST["password"];
         $exists = false;
 
         // Use a prepared statement to retrieve the user's hashed password
-        $sql = "SELECT * FROM `staff` WHERE admin_id = ?";
+        $sql = "SELECT * FROM `admin` WHERE phone = ?";
         $stmt = mysqli_prepare($conn, $sql);
         mysqli_stmt_bind_param($stmt, "s", $phone);
         mysqli_stmt_execute($stmt);
@@ -24,11 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $hashed_password = $row['password'];
 
             // Use password_verify to check the password
-            if (password_verify($password, $hashed_password)) {
+            if ($password==$hashed_password) {
                 // Login successful, redirect to welcome.php
                 session_start();
-                $_SESSION['admin_id'] = $row['id']; // Store the user's ID in the session
-                echo $_SESSION['admin_id'] ;
+                $_SESSION['user_id'] = $row['id']; // Store the user's ID in the session
+                echo $_SESSION['user_id'] ;
                 // Redirect to a welcome page or user dashboard
                 header('Location: admin_dashboard.php');
                 exit();
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             else {
                 // Login failed, redirect to login-register.php with an error message
                 echo '<script>
-                window.location.href = "index.php";
+                window.location.href = "index.html";
                 alert("Login failed. Invalid username or password!");
                 </script>';
                 exit();
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             // Login failed, redirect to login-register.php with an error message
             echo '<script>
-            window.location.href = "index.php";
+            window.location.href = "index.html";
             alert("Login failed. Invalid username or password!");
             </script>';
             exit();

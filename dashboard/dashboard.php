@@ -3,7 +3,7 @@ session_start();
 // Check if the user is logged in (you should have a login system)
 if (!isset($_SESSION['user_id'])) {
     // Redirect the user to the login page if not logged in
-    header('Location: ../index.html');
+    header('Location: ../login-register/index.html');
     exit();
 }
 
@@ -42,6 +42,9 @@ $stmt->close();
     
     <!-- Custom CSS for styling -->
     <link rel="stylesheet" href="../residuals/styles.css">
+    <style>
+        
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg" id="navbar">
@@ -54,6 +57,9 @@ $stmt->close();
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto ">
                     <li class="nav-item">
+                        <a id="home" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
                         <a id="policeButton" href=#locate>Police</a>
                     </li>
                     <li class="nav-item">
@@ -63,6 +69,9 @@ $stmt->close();
                         <a id="shelterButton" href=#locate>Shelter</a>
                     </li>
                     <li class="nav-item">
+                        <a id="exitButton" href=#locate>Safety exit</a>
+                    </li>
+                    <li class="nav-item hidden">
                         <a href="#register_complaint">REPORT</a>
                     </li>
                         <button class="btn btn-primary" id="logoutButton">Logout</button>
@@ -173,7 +182,7 @@ $stmt->close();
     <script src="..residuals/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
 <script>
     
 

@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
 // Check if the user is logged in (you should have a login system)
 // if (!isset($_SESSION['admin_id'])) {
@@ -74,7 +74,7 @@ session_start();
 // Check if the user is logged in (you should have a login system)
 if (!isset($_SESSION['user_id'])) {
     // Redirect the user to the login page if not logged in
-    header('Location: login.php');
+    header('Location: login1.php');
     exit();
 }
 
